@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Login from "./components/Login/Login";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const StyledAppDiv = styled.div`
@@ -18,7 +19,9 @@ function App() {
     <StyledAppDiv className="App">
       <h1>Welcome to fakebook</h1>
       <img src="wops.jpg" className="App-logo" alt="logo" />
-      <Login></Login>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </StyledAppDiv>
   );
 }
