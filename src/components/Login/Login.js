@@ -1,7 +1,9 @@
+import StyledLogin from "./StyledLogin";
+
 const Login = () => {
   return (
     <>
-      <form className="login-form">
+      <StyledLogin className="login-form">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -17,7 +19,7 @@ const Login = () => {
           id="password"
           placeholder="Introduce your password"
         ></input>
-      </form>
+      </StyledLogin>
     </>
   );
 };
