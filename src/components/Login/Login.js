@@ -1,9 +1,34 @@
+import { useState } from "react";
 import StyledLogin from "./StyledLogin";
+import { useDispatch } from "react-redux";
+import { loginUserThunk } from "../../redux/thunks/thunks";
 
-const Login = (actionOnClick, event) => {
+const Login = () => {
+  const blankLogin = {
+    username: "",
+    password: "",
+  };
+
+  const [formData, setFormData] = useState(blankLogin);
+
+  const userDataInput = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const invalidForm = formData.username === "" || formData.password === "";
+
+  const dispatch = useDispatch();
+  const logUser = (event) => {
+    event.preventDefault();
+    dispatch(loginUserThunk(formData));
+  };
+
   return (
     <>
-      <StyledLogin className="login-form">
+      <StyledLogin onSubmit={logUser} className="login-form">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -11,6 +36,7 @@ const Login = (actionOnClick, event) => {
           id="username"
           placeholder="Introduce your username"
           autoComplete="off"
+          onChange={userDataInput}
         ></input>
         <label htmlFor="password">Password:</label>
         <input
@@ -18,8 +44,9 @@ const Login = (actionOnClick, event) => {
           name="username"
           id="password"
           placeholder="Introduce your password"
+          onChange={userDataInput}
         ></input>
-        <button type="submit" onClick={actionOnClick} disabled={event}>
+        <button type="submit" disabled={invalidForm}>
           Login
         </button>
       </StyledLogin>

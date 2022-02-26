@@ -20,7 +20,7 @@ function App() {
       <h1>Welcome to fakebook</h1>
       <img src="wops.jpg" className="App-logo" alt="logo" />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/user/login" element={<Login />} />
       </Routes>
     </StyledAppDiv>
   );
