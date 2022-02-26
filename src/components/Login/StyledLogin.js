@@ -5,8 +5,8 @@ const StyledLogin = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 800px;
-  height: 800px;
+  width: 400px;
+  height: 400px;
 `;
 
 export default StyledLogin;

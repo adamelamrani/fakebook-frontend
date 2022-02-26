@@ -1,6 +1,6 @@
 import StyledLogin from "./StyledLogin";
 
-const Login = () => {
+const Login = (actionOnClick, event) => {
   return (
     <>
       <StyledLogin className="login-form">
@@ -19,6 +19,9 @@ const Login = () => {
           id="password"
           placeholder="Introduce your password"
         ></input>
+        <button type="submit" onClick={actionOnClick} disabled={event}>
+          Login
+        </button>
       </StyledLogin>
     </>
   );
