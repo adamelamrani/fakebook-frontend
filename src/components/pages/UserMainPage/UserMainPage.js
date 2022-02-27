@@ -1,4 +1,17 @@
-const UserMainPage = (users) => {
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { loadUsersThunk } from "../../../redux/thunks/thunks";
+import User from "../../User/User";
+
+const UserMainPage = () => {
+  const users = useSelector((state) => state.userData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUsersThunk);
+  }, [dispatch]);
+
   return (
     <>
       <h2>fakebook</h2>
@@ -7,17 +20,7 @@ const UserMainPage = (users) => {
         {users.map((user) => {
           return (
             <>
-              <li>
-                <p>{user.username}</p>
-              </li>
-              <li>
-                <p>
-                  {user.name} {user.lastname}
-                </p>
-              </li>
-              <li>
-                <p>{user.birthdate}</p>
-              </li>
+              <User userData={user} />
             </>
           );
         })}
