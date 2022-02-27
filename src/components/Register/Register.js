@@ -1,10 +1,19 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerUserThunk } from "../../redux/thunks/thunks";
+import StyledLogin from "../Login/StyledLogin";
+
 const Register = () => {
-  const blankLogin = {
+  const blankForm = {
     username: "",
     password: "",
+    email: "",
+    name: "",
+    surname: "",
+    bithdate: "",
   };
 
-  const [formData, setFormData] = useState(blankLogin);
+  const [formData, setFormData] = useState(blankForm);
 
   const userDataInput = (event) => {
     setFormData({
@@ -13,17 +22,22 @@ const Register = () => {
     });
   };
 
-  const invalidForm = 
-  formData.username === "" || 
-  formData.password === "" ||
-  formData.email === "" ||
-  formData.name === "" ||
-  formData.lastname === "" ||
-  formData.bithdate === "";
-
+  /*   const invalidForm =
+    formData.username === "" ||
+    formData.password === "" ||
+    formData.email === "" ||
+    formData.name === "" ||
+    formData.surname === "" ||
+    formData.bithdate === "";
+ */
+  const dispatch = useDispatch();
+  const registerUser = (event) => {
+    event.preventDefault();
+    dispatch(registerUserThunk(formData));
+  };
   return (
     <>
-      <form onSubmit={}>
+      <StyledLogin onSubmit={registerUser} className="register-form">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -58,28 +72,26 @@ const Register = () => {
           placeholder="Introduce your name"
           onChange={userDataInput}
         ></input>
-        <label htmlFor="lastname">Last name:</label>
+        <label htmlFor="surname">Surname:</label>
         <input
           type="text"
-          name="lastname"
-          id="lastname"
+          name="surname"
+          id="surname"
           placeholder="Introduce your last name"
           autoComplete="off"
           onChange={userDataInput}
         ></input>
         <label htmlFor="birthdate">Birthdate:</label>
         <input
-          type="date"
+          type="text"
           name="birthdate"
           id="birthdate"
           onChange={userDataInput}
         ></input>
-         <button type="submit" disabled={invalidForm}>
-          Login
-        </button>
-      </form>
+        <button type="submit">Register</button>
+      </StyledLogin>
     </>
   );
-}
+};
 
 export default Register;

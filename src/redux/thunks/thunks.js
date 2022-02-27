@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { loginUserAction } from "../actions/actionsCreator";
+import { loginUserAction, registerUserAction } from "../actions/actionsCreator";
 
 export const loginUserThunk = (user) => async (dispatch) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}user/login`, {
@@ -15,4 +15,19 @@ export const loginUserThunk = (user) => async (dispatch) => {
     localStorage.setItem("UserToken", token.token);
     dispatch(loginUserAction({ id, username, token: token.token }));
   }
+};
+
+export const registerUserThunk = (user) => async (dispatch) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}user/register`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }
+  );
+  const newUser = await response.json();
+  dispatch(registerUserAction(newUser));
 };
