@@ -25,7 +25,7 @@ const Login = () => {
   const logUser = (event) => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
-    navigate("/main-page");
+    navigate("/user/main-page");
   };
   return (
     <>

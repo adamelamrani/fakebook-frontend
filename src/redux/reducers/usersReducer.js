@@ -11,7 +11,6 @@ const usersReducers = (userData = [], action = {}) => {
       break;
     case actionTypes.loadUsers:
       newState = [...action.users];
-      console.log(newState);
       break;
     default:
       newState = [...userData];
