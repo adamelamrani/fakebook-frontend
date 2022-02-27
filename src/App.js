@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import Login from "./components/Login/Login";
 import { Route, Routes } from "react-router-dom";
 import Register from "./components/Register/Register";
-import FrontPage from "./components/FrontPage/FrontPage";
+import LoginPage from "./components/pages/LoginPage/LoginPage";
+import FrontPage from "./components/pages/FrontPage/FrontPage";
+import UserMainPage from "./components/pages/UserMainPage/UserMainPage";
 
 function App() {
   const StyledAppDiv = styled.div`
@@ -21,8 +22,9 @@ function App() {
     <StyledAppDiv className="App">
       <Routes>
         <Route path="/" element={<FrontPage />} />
-        <Route path="/user/login" element={<Login />} />
+        <Route path="/user/login" element={<LoginPage />} />
         <Route path="/user/register" element={<Register />} />
+        <Route path="/user/main-page" element={<UserMainPage />} />
       </Routes>
     </StyledAppDiv>
   );
