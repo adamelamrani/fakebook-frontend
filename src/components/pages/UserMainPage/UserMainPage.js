@@ -6,7 +6,6 @@ import User from "../../User/User";
 import StyledMainPage from "./StyledMainPage";
 
 const UserMainPage = () => {
-  debugger;
   const users = useSelector((state) => state.userData);
   const dispatch = useDispatch();
   useEffect(() => {

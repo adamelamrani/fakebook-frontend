@@ -40,7 +40,6 @@ export const loadUsersThunk = async (dispatch) => {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}user/main-page`
   );
-  debugger;
   const users = await response.json();
   dispatch(loadUsersAction(users));
 };
