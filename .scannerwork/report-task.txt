@@ -1,0 +1,6 @@
+projectKey=front07chwe
+serverUrl=http://localhost:9000
+serverVersion=9.2.4.50792
+dashboardUrl=http://localhost:9000/dashboard?id=front07chwe
+ceTaskId=AX89TDId19adbOZxD5H9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX89TDId19adbOZxD5H9

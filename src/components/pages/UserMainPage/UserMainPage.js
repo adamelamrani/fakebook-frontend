@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUsersThunk } from "../../../redux/thunks/thunks";
 import User from "../../User/User";
 import StyledMainPage from "./StyledMainPage";
