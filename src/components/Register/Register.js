@@ -37,6 +37,7 @@ const Register = () => {
   };
   return (
     <>
+      <h2>fakebook</h2>
       <StyledLogin onSubmit={registerUser} className="register-form">
         <label htmlFor="username">Username:</label>
         <input
