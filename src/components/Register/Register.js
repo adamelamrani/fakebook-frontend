@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { registerUserThunk } from "../../redux/thunks/thunks";
 import StyledLogin from "../Login/StyledLogin";
 
@@ -14,7 +15,7 @@ const Register = () => {
   };
 
   const [formData, setFormData] = useState(blankForm);
-
+  const navigate = useNavigate();
   const userDataInput = (event) => {
     setFormData({
       ...formData,
@@ -22,18 +23,18 @@ const Register = () => {
     });
   };
 
-  /*   const invalidForm =
+  const invalidForm =
     formData.username === "" ||
     formData.password === "" ||
     formData.email === "" ||
     formData.name === "" ||
-    formData.surname === "" ||
-    formData.bithdate === "";
- */
+    formData.surname === "";
+
   const dispatch = useDispatch();
   const registerUser = (event) => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
+    navigate("/user/login");
   };
   return (
     <>
@@ -84,12 +85,14 @@ const Register = () => {
         ></input>
         <label htmlFor="birthdate">Birthdate:</label>
         <input
-          type="text"
+          type="date"
           name="birthdate"
           id="birthdate"
           onChange={userDataInput}
         ></input>
-        <button type="submit">Register</button>
+        <button type="submit" disabled={invalidForm}>
+          Register
+        </button>
       </StyledLogin>
     </>
   );
