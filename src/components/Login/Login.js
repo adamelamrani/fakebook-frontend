@@ -45,7 +45,7 @@ const Login = () => {
           placeholder="Introduce your password"
           onChange={userDataInput}
         ></input>
-        <button type="submit" onClick={logUser} disabled={invalidForm}>
+        <button type="submit" disabled={invalidForm}>
           Login
         </button>
       </StyledLogin>
