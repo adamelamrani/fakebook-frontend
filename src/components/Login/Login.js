@@ -25,7 +25,6 @@ const Login = () => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
   };
-  console.log(formData);
   return (
     <>
       <StyledLogin onSubmit={logUser} className="login-form">
@@ -46,7 +45,7 @@ const Login = () => {
           placeholder="Introduce your password"
           onChange={userDataInput}
         ></input>
-        <button type="submit" disabled={invalidForm}>
+        <button type="submit" onClick={logUser} disabled={invalidForm}>
           Login
         </button>
       </StyledLogin>
