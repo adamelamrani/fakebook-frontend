@@ -1,5 +1,9 @@
 import jwtDecode from "jwt-decode";
-import { loginUserAction, registerUserAction } from "../actions/actionsCreator";
+import {
+  loadUsersAction,
+  loginUserAction,
+  registerUserAction,
+} from "../actions/actionsCreator";
 
 export const loginUserThunk = (user) => async (dispatch) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}user/login`, {
@@ -30,4 +34,12 @@ export const registerUserThunk = (user) => async (dispatch) => {
   );
   const newUser = await response.json();
   dispatch(registerUserAction(newUser));
+};
+
+export const loadUsersThunk = async (dispatch) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}user/main-page`
+  );
+  const users = await response.json();
+  dispatch(loadUsersAction(users));
 };
