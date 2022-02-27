@@ -10,7 +10,7 @@ export const registerUserAction = (user) => ({
   user,
 });
 
-export const loadUsersAction = (users) => ({
+export const loadUsersAction = ({ users }) => ({
   type: actionTypes.loadUsers,
   users,
 });

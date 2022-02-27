@@ -1,17 +1,18 @@
-const User = (userData) => {
+import StyledUser from "./StyledUser";
+
+const User = ({ userData }) => {
   return (
     <>
-      <li>
-        <p>{userData.username}</p>
-      </li>
-      <li>
-        <p>
-          {userData.name} {userData.lastname}
-        </p>
-      </li>
-      <li>
-        <p>{userData.birthdate}</p>
-      </li>
+      <StyledUser key={userData.id}>
+        <img src="/user.png" alt="default user logo" />
+        <div>
+          <p>{userData.username}</p>
+          <p>
+            {userData.name} {userData.surname}
+          </p>
+          <p>{userData.birthdate}</p>
+        </div>
+      </StyledUser>
     </>
   );
 };

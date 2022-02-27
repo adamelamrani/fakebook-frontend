@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { loadUsersThunk } from "../../../redux/thunks/thunks";
 import User from "../../User/User";
+import StyledMainPage from "./StyledMainPage";
 
 const UserMainPage = () => {
+  debugger;
   const users = useSelector((state) => state.userData);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(loadUsersThunk);
   }, [dispatch]);
@@ -16,7 +17,7 @@ const UserMainPage = () => {
     <>
       <h2>fakebook</h2>
       <h3>People around you</h3>
-      <ul className="posible-friends">
+      <StyledMainPage className="posible-friends">
         {users.map((user) => {
           return (
             <>
@@ -24,7 +25,7 @@ const UserMainPage = () => {
             </>
           );
         })}
-      </ul>
+      </StyledMainPage>
     </>
   );
 };
