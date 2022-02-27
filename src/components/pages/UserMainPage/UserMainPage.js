@@ -8,12 +8,12 @@ const UserMainPage = (users) => {
           return (
             <>
               <li>
+                <p>{user.username}</p>
+              </li>
+              <li>
                 <p>
                   {user.name} {user.lastname}
                 </p>
-              </li>
-              <li>
-                <p>{user.username}</p>
               </li>
               <li>
                 <p>{user.birthdate}</p>
