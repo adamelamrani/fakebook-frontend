@@ -25,7 +25,7 @@ const Login = () => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
   };
-
+  console.log(formData);
   return (
     <>
       <StyledLogin onSubmit={logUser} className="login-form">
