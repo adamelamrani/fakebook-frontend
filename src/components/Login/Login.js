@@ -27,6 +27,7 @@ const Login = () => {
   };
   return (
     <>
+      <h2>fakebook</h2>
       <StyledLogin onSubmit={logUser} className="login-form">
         <label htmlFor="username">Username:</label>
         <input
