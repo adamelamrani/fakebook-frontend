@@ -9,6 +9,9 @@ const usersReducers = (userData = [], action = {}) => {
     case actionTypes.registerUser:
       newState = [...userData, action.user];
       break;
+    case actionTypes.loadUsers:
+      newState = [...action.users];
+      break;
     default:
       newState = [...userData];
   }
