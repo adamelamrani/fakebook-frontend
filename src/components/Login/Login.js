@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import StyledLogin from "./StyledLogin";
 import { useDispatch } from "react-redux";
-import { loadUsersThunk, loginUserThunk } from "../../redux/thunks/thunks";
+import { loginUserThunk } from "../../redux/thunks/thunks";
 import { useNavigate } from "react-router-dom";
 import { loginUserAction } from "../../redux/actions/actionsCreator";
 import jwtDecode from "jwt-decode";
