@@ -5,7 +5,6 @@ const LoginPage = () => {
     <>
       <h2>fakebook</h2>
       <div>
-        <h3>Login</h3>
         <Login />
       </div>
     </>

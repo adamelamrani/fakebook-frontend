@@ -38,26 +38,30 @@ const Login = () => {
   return (
     <>
       <StyledLogin onSubmit={logUser} className="login-form">
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Introduce your username"
-          autoComplete="off"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="username"
-          id="password"
-          placeholder="Introduce your password"
-          onChange={userDataInput}
-        ></input>
-        <button type="submit" disabled={invalidForm}>
-          Login
-        </button>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Introduce your username"
+            autoComplete="off"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="username"
+            id="password"
+            placeholder="Introduce your password"
+            onChange={userDataInput}
+          ></input>
+          <button type="submit" disabled={invalidForm}>
+            Login
+          </button>
+        </div>
       </StyledLogin>
     </>
   );
