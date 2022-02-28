@@ -40,59 +40,71 @@ const Register = () => {
     <>
       <h2>fakebook</h2>
       <StyledLogin onSubmit={registerUser} className="register-form">
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Introduce your username"
-          autoComplete="off"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Introduce your password"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="email">E-mail:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="youremail@something.com"
-          autoComplete="off"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Introduce your name"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="surname">Surname:</label>
-        <input
-          type="text"
-          name="surname"
-          id="surname"
-          placeholder="Introduce your last name"
-          autoComplete="off"
-          onChange={userDataInput}
-        ></input>
-        <label htmlFor="birthdate">Birthdate:</label>
-        <input
-          type="date"
-          name="birthdate"
-          id="birthdate"
-          onChange={userDataInput}
-        ></input>
-        <button type="submit" disabled={invalidForm}>
-          Register
-        </button>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Introduce your username"
+            autoComplete="off"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Introduce your password"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="email">E-mail:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="youremail@something.com"
+            autoComplete="off"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Introduce your name"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="surname">Surname:</label>
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            placeholder="Introduce your last name"
+            autoComplete="off"
+            onChange={userDataInput}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="birthdate">Birthdate:</label>
+          <input
+            type="date"
+            name="birthdate"
+            id="birthdate"
+            onChange={userDataInput}
+          ></input>
+          <button type="submit" disabled={invalidForm}>
+            Register
+          </button>
+        </div>
       </StyledLogin>
     </>
   );

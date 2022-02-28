@@ -4,6 +4,7 @@ import Register from "./components/Register/Register";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import FrontPage from "./components/pages/FrontPage/FrontPage";
 import UserMainPage from "./components/pages/UserMainPage/UserMainPage";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   const StyledAppDiv = styled.div`
@@ -11,6 +12,7 @@ function App() {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100vw;
     h1 {
       text-align: center;
       text-justify: center;
@@ -20,6 +22,7 @@ function App() {
   `;
   return (
     <StyledAppDiv className="App">
+      <Navigation />
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/user/login" element={<LoginPage />} />
