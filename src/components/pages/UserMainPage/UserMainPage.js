@@ -5,7 +5,7 @@ import User from "../../User/User";
 import StyledMainPage from "./StyledMainPage";
 
 const UserMainPage = () => {
-  const users = useSelector((state) => state.userData);
+  const users = useSelector((state) => state.loadUsers);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadUsersThunk);

@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StyledLogin from "./StyledLogin";
 import { useDispatch } from "react-redux";
-import { loginUserThunk } from "../../redux/thunks/thunks";
+import { loadUsersThunk, loginUserThunk } from "../../redux/thunks/thunks";
 import { useNavigate } from "react-router-dom";
+import { loginUserAction } from "../../redux/actions/actionsCreator";
+import jwtDecode from "jwt-decode";
 
 const Login = () => {
   const blankLogin = {
     username: "",
     password: "",
   };
-
   const [formData, setFormData] = useState(blankLogin);
 
   const userDataInput = (event) => {
@@ -24,9 +25,17 @@ const Login = () => {
   const dispatch = useDispatch();
   const logUser = (event) => {
     event.preventDefault();
-    dispatch(loginUserThunk(formData));
-    navigate("/user/main-page");
+    dispatch(loginUserThunk(formData, navigate));
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("UserToken");
+    if (token) {
+      console.log(token);
+      const { name, username, id } = jwtDecode(token);
+      dispatch(loginUserAction({ name, username, id, loggedIn: true }));
+    }
+  }, [dispatch]);
   return (
     <>
       <StyledLogin onSubmit={logUser} className="login-form">
