@@ -31,7 +31,6 @@ const Login = () => {
   useEffect(() => {
     const token = localStorage.getItem("UserToken");
     if (token) {
-      console.log(token);
       const { name, username, id } = jwtDecode(token);
       dispatch(loginUserAction({ name, username, id, loggedIn: true }));
     }
