@@ -5,7 +5,7 @@ import {
   registerUserAction,
 } from "../actions/actionsCreator";
 
-export const loginUserThunk = (user) => async (dispatch) => {
+export const loginUserThunk = (user, navigate) => async (dispatch) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}user/login`, {
     method: "POST",
     headers: {
@@ -18,6 +18,7 @@ export const loginUserThunk = (user) => async (dispatch) => {
     const { id, username } = await jwtDecode(token.token);
     localStorage.setItem("UserToken", token.token);
     dispatch(loginUserAction({ id, username, token: token.token }));
+    navigate("/user/main-page");
   }
 };
 

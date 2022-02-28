@@ -1,6 +1,7 @@
 import StyledUser from "./StyledUser";
 
 const User = ({ userData }) => {
+  console.log(userData);
   return (
     <>
       <StyledUser key={userData.id}>
