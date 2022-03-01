@@ -10,19 +10,14 @@ const UserMainPage = () => {
   useEffect(() => {
     dispatch(loadUsersThunk);
   }, [dispatch]);
-
   return (
     <>
       <h2>fakebook</h2>
       <h3>People around you</h3>
       <StyledMainPage className="posible-friends">
-        {users.map((user) => {
-          return (
-            <>
-              <User userData={user} />
-            </>
-          );
-        })}
+        {users.map((user) => (
+          <User userData={user} />
+        ))}
       </StyledMainPage>
     </>
   );
